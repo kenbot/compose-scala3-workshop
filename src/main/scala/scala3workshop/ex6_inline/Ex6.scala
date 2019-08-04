@@ -13,7 +13,6 @@ package scala3workshop.ex6_inline
 object Ex6 {
   def main(args: Array[String]): Unit = {
     // Put whatever code you want here to play around with the stuff chapter
-    println(power(0,0))
   }
 }
 
@@ -57,7 +56,7 @@ object Logger {
 // Ex 6.4
 inline def power(x: Long, n: Int): Long = {
   if (n == 0) 
-    power(x,n)
+    1L
   else if (n % 2 == 1)
     x * power(x, n-1)
   else {
