@@ -73,7 +73,7 @@ inline def power(x: Long, n: Int): Long = {
 }
 
 // This inline method calculates the power of two numbers - note that it is recursive.
-// What will this do to the generated code at a use-site?
+// What do you think this might do to the generated code at a use-site?
 
 
 // Ex 6.5 - Infinite recursion
@@ -110,28 +110,3 @@ inline def power(x: Long, n: Int): Long = {
 // else inline if (n % 2 == 1)
 //
 // How does this change the error message, running with power(5,2) and power(5,n)?
-
-
-// Ex 6.9 - Inline match
-// 
-// Declaring `match` statements as `inline` means that the compiler has to be able to statically calculate the branch dispatches.
-
-/*
-sealed trait Nat
-
-case object Zero extends Nat
-case class Succ[N <: Nat](n: Nat) extends Nat
-
-enum Natx { // Peano numbers
-  case Zero
-  case Succ[N <: Natx](n: N)
-}
-
-inline def natToInt(n: Nat): Int = inline n match {
-  case Zero => 0
-  case Succ(n1) => natToInt(n1) + 1
-}
-
-val natTwo: Int = natToInt(Succ(Succ(Zero))) */
-
-// Define the natToInt function above using pattern matching, injecting Nat into Int.
